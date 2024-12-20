@@ -43,7 +43,6 @@ Crypto arbitrage trading involves financial risk, including the risk of losing t
 ## Contributing
 We welcome contributions! Please feel free to submit a Pull Request or open an issue for any bugs, suggestions, or feature requests.
 
-
 ---
 
 Happy trading!
