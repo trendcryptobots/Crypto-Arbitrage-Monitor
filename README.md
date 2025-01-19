@@ -36,7 +36,14 @@ cd Crypto-Arbitrage-Monitor
 pip install -r requirements.txt
 python arbitrage_monitor.py
 ```
+If you are getting a pip error during installation, install Python 3.7.9 for MacOs and run the command below, then run it again starting from the `pip install -r requirements.txt` command.
+[Python 3.7.9 for MacOs](https://www.python.org/ftp/python/3.7.9/python-3.7.9-macosx10.9.pkg)
 
+```shell
+python3 -m ensurepip --upgrade
+python3 -m pip install --upgrade pip
+
+```
 ## Disclaimer
 Crypto arbitrage trading involves financial risk, including the risk of losing the invested capital. Please do your own research and consider the risks before engaging in arbitrage trading.
 
