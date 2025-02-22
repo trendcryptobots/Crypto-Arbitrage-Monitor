@@ -1,55 +1,135 @@
 # Crypto Arbitrage Monitor
 
+A real-time monitoring tool for identifying cryptocurrency arbitrage opportunities across multiple exchanges.
+
 ## Overview
 
-**Crypto-Arbitrage-Monitor** is an open-source tool designed to help you track and capitalize on arbitrage opportunities across multiple cryptocurrency exchanges. This tool monitors price discrepancies in real time and alerts you when profitable trading opportunities arise, enabling you to exploit differences in the price of a crypto asset between exchanges for a profit.
+Crypto Arbitrage Monitor helps traders identify and capitalize on price differences between cryptocurrency exchanges. By continuously monitoring multiple exchanges in real-time, it detects price discrepancies that could potentially be profitable for arbitrage trading.
 
-## Features
+### What is Crypto Arbitrage?
 
-- **Real-Time Monitoring**: Continuously scans supported cryptocurrency exchanges for price differences.
-- **Arbitrage Alerts**: Alerts you whenever there are arbitrage opportunities between exchanges.
-- **Multiple Exchange Support**: Supports major cryptocurrency exchanges like Binance, Kraken, Coinbase, and more.
-- **Customizable Thresholds**: Set your own profit margin thresholds for alerts.
-- **User-Friendly Interface**: Easy-to-use dashboard to track and analyze arbitrage opportunities.
+Crypto arbitrage is the practice of taking advantage of price differences between cryptocurrency exchanges. For example, if Bitcoin is trading at $50,000 on Exchange A and $50,200 on Exchange B, a trader could potentially profit from this $200 difference (minus fees) by buying on Exchange A and selling on Exchange B.
 
-## Getting Started
+### Key Features
 
-To get started with **Crypto-Arbitrage-Monitor**, follow these simple steps:
+- Real-time price monitoring across multiple exchanges
+- Configurable price difference thresholds
+- Support for multiple cryptocurrency pairs
+- Automated alerts for arbitrage opportunities
+- Low-latency websocket connections
+- Customizable exchange API integration
 
-### Prerequisites
+## Prerequisites
+
+Before setting up the monitor, ensure you have:
 
 - Python 3.7 or higher
-- `pip` (Python package installer)
-- API keys for the exchanges you want to monitor
+- pip (Python package manager)
+- Access to cryptocurrency exchange API keys
+- Stable internet connection with good latency
 
-## Download
-You can [click here to download](https://github.com/trendcryptobots/Crypto-Arbitrage-Monitor/releases/download/3.0/ArbitrageMonitor_Windows.zip) the latest version of the Crypto-Arbitrage-Monitor.
+## Installation
 
-
-### Installation - With Open Source
-
-Clone the repository from GitHub:
-
-```sh
+1. Clone the repository:
+```bash
 git clone https://github.com/trendcryptobots/Crypto-Arbitrage-Monitor.git
 cd Crypto-Arbitrage-Monitor
+```
+
+2. Install required dependencies:
+```bash
 pip install -r requirements.txt
-python arbitrage_monitor.py
 ```
-If you are getting a pip error during installation, install Python 3.7.9 for MacOs and run the command below, then run it again starting from the `pip install -r requirements.txt` command.
-[Python 3.7.9 for MacOs](https://www.python.org/ftp/python/3.7.9/python-3.7.9-macosx10.9.pkg)
 
-```shell
-python3 -m ensurepip --upgrade
-python3 -m pip install --upgrade pip
-
+3. Copy the example configuration file:
+```bash
+cp config.example.py config.py
 ```
-## Disclaimer
-Crypto arbitrage trading involves financial risk, including the risk of losing the invested capital. Please do your own research and consider the risks before engaging in arbitrage trading.
+
+## Configuration
+
+### Exchange API Setup
+
+1. Create API keys on your preferred exchanges
+2. Edit `config.py` with your API credentials:
+```python
+EXCHANGE_APIS = {
+    "binance": {
+        "api_key": "your_api_key",
+        "api_secret": "your_api_secret"
+    },
+    # Add more exchanges as needed
+}
+```
+
+### Monitor Settings
+
+Configure monitoring parameters in `config.py`:
+```python
+SETTINGS = {
+    "min_profit_threshold": 0.5,  # Minimum price difference (%)
+    "trading_pairs": ["BTC/USDT", "ETH/USDT"],  # Pairs to monitor
+    "update_interval": 1,  # Update frequency in seconds
+    "exchanges": ["binance", "kucoin", "huobi"]  # Exchanges to monitor
+}
+```
+
+## Usage
+
+1. Start the monitor:
+```bash
+python monitor.py
+```
+
+2. Monitor output will display:
+- Current prices across exchanges
+- Potential arbitrage opportunities
+- Profit percentages and absolute differences
+- Trading volume and liquidity information
+
+## Best Practices
+
+### Security
+- Never commit your API keys to version control
+- Use environment variables for sensitive information
+- Regularly rotate your API keys
+- Set appropriate API key permissions (read-only if not trading)
+
+### Performance
+- Adjust update intervals based on your network latency
+- Monitor system resource usage
+- Consider running on a server close to exchange APIs
+- Use separate instances for different trading pairs
+
+### Risk Management
+- Start with small test trades
+- Account for exchange fees in profit calculations
+- Consider withdrawal fees and limits
+- Monitor exchange liquidity and volume
+
+## Troubleshooting
+
+Common issues and solutions:
+
+1. Connection Errors
+   - Verify internet connectivity
+   - Check API key permissions
+   - Ensure exchange APIs are accessible
+
+2. High Latency
+   - Reduce number of monitored pairs
+   - Increase update interval
+   - Check network performance
+
+3. Missing Opportunities
+   - Adjust profit thresholds
+   - Verify exchange fee calculations
+   - Check for sufficient trading volume
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contributing
-We welcome contributions! Please feel free to submit a Pull Request or open an issue for any bugs, suggestions, or feature requests.
 
----
-
-Happy trading!
+Contributions are welcome! Please feel free to submit a Pull Request.
